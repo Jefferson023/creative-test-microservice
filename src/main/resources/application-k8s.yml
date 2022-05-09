@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://mongo:27017/creative
+  application:
+    name: creative
+  output.ansi.enabled: ALWAYS
+server:
+  error:
+    include-message: always
+  port: 8080
+jwt:
+  secret: creative
+  expiration: 14400
