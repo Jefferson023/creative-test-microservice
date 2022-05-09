@@ -18,6 +18,5 @@ spec:
         - name: creative
           image: jefferson023/creative:1.0
           ports:
-            - port: 8080
-              containerPort: 8080
+            - containerPort: 8080
           imagePullPolicy: Always
