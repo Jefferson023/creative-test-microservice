@@ -30,5 +30,6 @@ spec:
     app: creative
   ports:
     - port: 8080
-      targetPort: 8080
+      protocol: TCP
+      nodePort: 30081
   type: NodePort
