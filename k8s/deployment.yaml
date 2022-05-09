@@ -1,14 +1,25 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: creative
+spec:
+  selector:
+    app: creative
+  ports:
+  - protocol: TCP
+    port: 8080
+    nodePort: 30081
+  type: NodePort
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: creative
-  labels:
-    app: creative
 spec:
-  replicas: 1
   selector:
-    matchLabels:
-      app: creative
+      matchLabels:
+        app: creative
+  replicas: 1
   template:
     metadata:
       labels:
@@ -17,19 +28,6 @@ spec:
       containers:
         - name: creative
           image: jefferson023/creative:1.0
-          ports:
-            - containerPort: 8080
           imagePullPolicy: Always
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: creative
-spec:
-  selector:
-    app: creative
-  ports:
-    - port: 8080
-      protocol: TCP
-      nodePort: 30081
-  type: NodePort
+          ports:
+          - containerPort: 8080
