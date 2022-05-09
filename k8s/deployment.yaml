@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: creative
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: creative
+  template:
+    metadata:
+      labels:
+        app: creative
+    spec:
+      containers:
+        - name: creative
+          image: jefferson023/creative:1.0
+          ports:
+            - containerPort:
+          env:
+            - name: MONGO_URL
+              value: mongodb://mongo:27017/creative
+          imagePullPolicy: always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: creative
+spec:
+  selector:
+    app: creative
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer
