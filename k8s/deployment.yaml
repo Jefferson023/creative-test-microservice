@@ -20,7 +20,7 @@ spec:
           env:
             - name: MONGO_URL
               value: mongodb://mongo:27017/creative
-          imagePullPolicy: always
+          imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
