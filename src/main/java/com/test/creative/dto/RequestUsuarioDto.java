@@ -17,7 +17,7 @@ public class RequestUsuarioDto {
     private final String email;
     @NotEmpty
     private final String senha;
-    private final String endereco;
+    private final String endereço;
     private final String telefone;
 
     @NotNull
