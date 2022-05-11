@@ -25,6 +25,6 @@ um banco de dados mongo configurado atendendo na porta 27017.
 Para realizar o deploy no kubernetes, basta executar os comandos abaixo:
 ```
 kubectl apply -f k8s
-kubectl port-forward service/creative 28015:30081 (após o serviços estarem rodando)
+kubectl port-forward service/creative 28015:8080 (após o serviços estarem rodando)
 ```
 A aplicação vai atender na porta local 28015. 
