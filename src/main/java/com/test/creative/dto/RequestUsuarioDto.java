@@ -21,5 +21,5 @@ public class RequestUsuarioDto {
     private final String telefone;
 
     @NotNull
-    private Perfil perfil;
+    private final Perfil perfil;
 }

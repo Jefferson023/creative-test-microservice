@@ -26,7 +26,7 @@ public class TokenUtil {
 
     private String gerarToken(Authentication authentication) {
 
-        var user = (UserDetails) authentication.getPrincipal();
+        final var user = (UserDetails) authentication.getPrincipal();
 
         final var dataAtual = new Date();
         final var dataExpiracao = Date.from(dataAtual.toInstant().plusSeconds(expirationSeconds));

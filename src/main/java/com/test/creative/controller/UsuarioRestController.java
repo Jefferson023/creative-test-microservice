@@ -25,6 +25,7 @@ public class UsuarioRestController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseUsuarioDto createUsuario(@Valid @RequestBody RequestUsuarioDto usuarioDto) {
         try {
             final var usuario = this.usuarioService.criarUsuario(usuarioDto);
@@ -36,6 +37,7 @@ public class UsuarioRestController {
 
     @DeleteMapping("/{usuarioId}")
     @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteUsuario(@PathVariable String usuarioId) {
         try {
             usuarioService.removerUsuario(usuarioId);
@@ -46,6 +48,7 @@ public class UsuarioRestController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseUsuarioDto updateUsuario(@Valid @RequestBody RequestUsuarioDto usuarioDto) {
         try {
             final var usuario = usuarioService.atualizarUsuario(usuarioDto);
@@ -57,6 +60,7 @@ public class UsuarioRestController {
 
     @GetMapping("/{usuarioId}")
     @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("isAuthenticated()")
     public ResponseUsuarioDto getUsuario(@PathVariable String usuarioId) {
         final Usuario usuario;
         try {
@@ -69,6 +73,7 @@ public class UsuarioRestController {
 
     @GetMapping("/buscar")
     @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("isAuthenticated()")
     public Page<ResponseUsuarioDto> buscarUsuario(
             @RequestParam(required = false, defaultValue = "") String nome,
             @RequestParam(required = false, defaultValue = "") String email,
