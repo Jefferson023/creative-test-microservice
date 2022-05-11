@@ -2,7 +2,7 @@
 
 ## Microserviço para autenticação e gerenciamento de usuários feito para o teste técnico da Creative Drive.
 ### Credenciais
-O usuário ADMIN que pode ser utilizado tem email admin@email.com e senha 123.
+O usuário ADMIN que pode ser utilizado tem email admin@email.com e senha 123
 
 ### Endpoins
 POST /auth -> autenticação/criação do token do usuário. Deve ser enviado um json no formato {email: "email", senha: "senha"}
